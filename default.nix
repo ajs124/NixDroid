@@ -54,6 +54,13 @@ in stdenv.mkDerivation rec {
     ''}
   '';
 
+  unpackPhase = ''
+    mkdir upper work src
+    /run/wrappers/bin/sudo /run/current-system/sw/bin/mount -t overlay overlay -ometacopy=on,lowerdir="${src}",upperdir=./upper,workdir=./work src
+    sourceRoot="$PWD"/src
+    /run/wrappers/bin/sudo /run/current-system/sw/bin/chown -R $(id -un) "$sourceRoot"
+    /run/wrappers/bin/sudo /run/current-system/sw/bin/chmod -R u+w -- "$sourceRoot"
+  '';
 
   buildPhase = ''
     cat << EOF | ${nixdroid-env}/bin/nixdroid-build
@@ -84,5 +91,10 @@ in stdenv.mkDerivation rec {
       # partition images
       cp -v *.img kernel "$out/misc/"
     ''}
+  '';
+
+  fixUpPhase = ''
+    cd "$sourceRoot"/../
+    /run/wrappers/bin/sudo /run/current-system/sw/bin/umount "$sourceRoot"
   '';
 }
