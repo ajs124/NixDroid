@@ -4,7 +4,7 @@ let
     nixexprpath = "default.nix";
     checkinterval = 172800;
     schedulingshares = 1000;
-    keepnr = 3;
+    keepnr = 2;
   };
   mkInput = t: v: e: { type = t; value = v; emailresponsible = e; };
   nixdroid = mkInput "git" "https://github.com/ajs124/NixDroid" true;
