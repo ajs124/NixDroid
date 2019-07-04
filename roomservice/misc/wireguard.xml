@@ -2,5 +2,6 @@
 <manifest>
   <remote fetch="https://git.zx2c4.com/" name="zx2c4" />
   <project name="android_kernel_wireguard" path="kernel/wireguard" remote="zx2c4" revision="master" sync-s="true" />
-  <project name="WireGuard" path="wireguard" remote="zx2c4" revision="refs/tags/0.0.20190702" />
+  <!-- one commit after 0.0.20190702, which fixed compilation on the ancient kernels our android devices run -->
+  <project name="WireGuard" path="wireguard" remote="zx2c4" revision="c31f8664cff475b8f4160506e582fc423c71f381" />
 </manifest>
