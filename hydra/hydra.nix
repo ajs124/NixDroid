@@ -70,6 +70,17 @@ in {
         opengappsVariant = "nano";
       };
     };
+    "rr-pie-payton" = defaultNixDroid // {
+      description = "ResurrectionRemix Pie for Payton";
+      inputs = defaultInputs {
+        device = "payton";
+        rom = "ResurrectionRemix";
+        rev = "pie";
+        enableWireguard = "true";
+        opengappsVariant = "nano";
+      };
+    };
+
     "los-16.0-oneplus3" = defaultNixDroid // {
       description = "LineageOS 16.0 for OnePlus 3";
       inputs = defaultInputs {

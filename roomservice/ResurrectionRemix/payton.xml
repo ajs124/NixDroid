@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <project name="LineageOS/android_device_motorola_payton" path="device/motorola/payton" remote="github" revision="lineage-16.0" />
+  <project name="LineageOS/android_device_motorola_sdm660-common" path="device/motorola/sdm660-common" remote="github" revision="lineage-16.0" />
+  <project name="LineageOS/android_kernel_motorola_msm8998" path="kernel/motorola/msm8998" remote="github" revision="lineage-16.0" />
+  <project name="LineageOS/android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="github" revision="lineage-16.0"/>
+  <project name="LineageOS/android_external_bson" path="external/bson" remote="github" revision="lineage-16.0" />
+  <project name="LineageOS/android_system_qcom" path="system/qcom" remote="github" revision="lineage-16.0" />
+  <project name="TheMuppets/proprietary_vendor_motorola" path="vendor/motorola" remote="github" revision="lineage-16.0" />
+</manifest>
