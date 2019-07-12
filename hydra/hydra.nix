@@ -16,7 +16,7 @@ let
   };
   defaultInputs = args: {
     inherit nixdroid;
-    nixpkgs = mkInput "git" "https://github.com/nixos/nixpkgs-channels nixos-18.09" false;
+    nixpkgs = mkInput "git" "https://github.com/nixos/nixpkgs-channels nixos-19.03" false;
     rev = mkInput "string" (optConf args "rev" "lineage-16.0") false;
     keyStorePath = mkInput "string" "/var/lib/nixdroid/keystore" false;
     device = mkInput "string" args.device false;
