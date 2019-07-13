@@ -2,6 +2,6 @@
 <manifest>
   <remote fetch="https://git.zx2c4.com/" name="zx2c4" />
   <project name="android_kernel_wireguard" path="kernel/wireguard" remote="zx2c4" revision="master" sync-s="true" />
-  <!-- one commit after 0.0.20190702, which fixed compilation on the ancient kernels our android devices run -->
-  <project name="WireGuard" path="wireguard" remote="zx2c4" revision="c31f8664cff475b8f4160506e582fc423c71f381" />
+  <!-- we only need ne commit after 0.0.20190702, but since their git doesn't let use fetch unadvertised objects, we'll just fetch master until the next snapshot -->
+  <project name="WireGuard" path="wireguard" remote="zx2c4" revision="master" />
 </manifest>
