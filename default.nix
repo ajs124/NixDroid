@@ -42,6 +42,7 @@ in { ota = stdenv.mkDerivation rec {
   prePatch = ''
     # Find device tree
     boardConfig="$(ls "device/"*"/${device}/BoardConfig.mk")"
+    boardConfigCommon="$(ls "device/"*/*"/BoardConfigCommon.mk" || true)"
     deviceConfig="$(ls "device/"*"/${device}/device.mk")"
     if ! [ -f "$boardConfig" ]; then
       echo "Tree for device ${device} not found"
@@ -58,7 +59,7 @@ in { ota = stdenv.mkDerivation rec {
 
     ${optionalString enableWireguard ''
       # Wireguard
-      kernelTree="$(grep 'TARGET_KERNEL_SOURCE := ' "$boardConfig" | cut -d' ' -f3)"
+      kernelTree="$((grep 'TARGET_KERNEL_SOURCE := ' "$boardConfig" || grep 'TARGET_KERNEL_SOURCE := ' "$boardConfigCommon") | cut -d' ' -f3)"
       wireguardHome="$kernelTree/net/wireguard"
       mkdir -p "$wireguardHome"
       mv wireguard/*/* "$wireguardHome"
