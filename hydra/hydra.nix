@@ -60,6 +60,15 @@ in {
         opengappsVariant = "pico";
       };
     };
+    "los-16.0-hammerhead" = defaultNixDroid // {
+      description = "LineageOS 16.0 for Hammerhead";
+      inputs = defaultInputs {
+        device = "hammerhead";
+        rom = "LineageOS";
+        rev = "lineage-16.0";
+        opengappsVariant = "pico";
+      };
+    };
     "los-16.0-payton" = defaultNixDroid // {
       description = "LineageOS 16.0 for Payton";
       inputs = defaultInputs {
