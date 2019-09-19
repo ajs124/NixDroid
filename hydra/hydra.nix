@@ -2,9 +2,8 @@
 let
   defaultNixDroid = {
     nixexprpath = "default.nix";
-    checkinterval = 172800;
+    checkinterval = 0;
     schedulingshares = 1000;
-    keepnr = 2;
   };
   mkInput = t: v: e: { type = t; value = v; emailresponsible = e; };
   nixdroid = mkInput "git" "https://github.com/ajs124/NixDroid" true;
@@ -17,7 +16,7 @@ let
   defaultInputs = args: {
     inherit nixdroid;
     nixpkgs = mkInput "git" "https://github.com/nixos/nixpkgs-channels nixos-19.03" false;
-    rev = mkInput "string" (optConf args "rev" "lineage-16.0") false;
+    rev = mkInput "string" args.rev false;
     keyStorePath = mkInput "string" "/var/lib/nixdroid/keystore" false;
     device = mkInput "string" args.device false;
     manifest = mkInput "string" manifests."${args.rom}" false;
@@ -84,6 +83,7 @@ in {
       inputs = defaultInputs {
         device = "oneplus3";
         rom = "LineageOS";
+        rev = "lineage-16.0";
         enableWireguard = "true";
         opengappsVariant = "nano";
       };
