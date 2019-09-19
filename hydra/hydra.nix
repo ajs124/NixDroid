@@ -21,7 +21,7 @@ let
     keyStorePath = mkInput "string" "/var/lib/nixdroid/keystore" false;
     device = mkInput "string" args.device false;
     manifest = mkInput "string" manifests."${args.rom}" false;
-    sha256Path = mkInput "path" ("/var/lib/nixdroid/hashes/" + args.device + ".sha256") false;
+    sha256Path = mkInput "path" ("/var/lib/nixdroid/hashes/${args.rev}-${args.device}.sha256") false;
     extraFlags = mkInput "string" (optConf args "extraFlags" "-g all,-darwin,-infra,-sts --no-repo-verify") false;
     opengappsVariant = mkInput "string" (optConf args "opengappsVariant" null) false;
     enableWireguard = mkInput "boolean" (optConf args "enableWireguard" "false") false;
