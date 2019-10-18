@@ -6,9 +6,9 @@ let
     schedulingshares = 1000;
   };
   mkInput = t: v: e: { type = t; value = v; emailresponsible = e; };
-  nixdroid = mkInput "git" "https://github.com/ajs124/NixDroid" true;
+  nixdroid = mkInput "git" "https://github.com/ajs124/NixDroid ten-test" true;
   manifests = {
-    LineageOS = "https://github.com/LineageOS/android";
+    LineageOS = "https://github.com/dasJ/android";
     ResurrectionRemix = "https://github.com/ResurrectionRemix/platform_manifest";
     UnlegacyAndroid = "https://github.com/Unlegacy-Android/android";
     PixelExperience = "https://github.com/PixelExperience/manifest";
