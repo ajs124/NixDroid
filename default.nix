@@ -34,9 +34,10 @@ in { ota = stdenv.mkDerivation rec {
   name = "nixdroid-${rev}-${device}";
   srcs = repo2nix.sources;
   unpackPhase = ''
+    runHook preUnpack
     ${optionalString usePatchedCoreutils "export PATH=${callPackage ./misc/coreutils.nix {}}/bin/:$PATH"}
-    echo $PATH
     ${repo2nix.unpackPhase}
+    runHook postUnpack
   '';
 
   prePatch = ''
