@@ -92,7 +92,7 @@ in { ota = stdenv.mkDerivation rec {
     # TODO: incremental (-i) OTA
     ${optionalString signBuild "cp -R ${keyStorePath} .keystore"}   # copy the keystore, because some of the scripts want to chmod etc.
     ./build/tools/releasetools/sign_target_files_apks.py ${optionalString signBuild "-o -d .keystore"} out/dist/*-target_files-*.zip signed-target_files.zip
-    ./build/tools/releasetools/ota_from_target_files.py ${optionalString signBuild "-k .keystore/releasekey"} --backup=true signed-target_files.zip ${otaZipFileName}
+    ./build/tools/releasetools/ota_from_target_files.py ${optionalString signBuild "-k .keystore/releasekey"} signed-target_files.zip ${otaZipFileName}
 
     EOF
   '';
