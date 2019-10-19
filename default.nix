@@ -85,8 +85,6 @@ in { ota = stdenv.mkDerivation rec {
     export USER="$(id -un)"
     export RELEASE_TYPE="${romtype}"  # FIXME: does this work on non-lineage roms?
 
-    set -e
-
     source build/envsetup.sh
     breakfast "${device}"
     mka otatools-package target-files-package dist
