@@ -1,11 +1,5 @@
 { pkgs }:
-let
-  jdk =  pkgs.callPackage <nixpkgs/pkgs/development/compilers/openjdk/8.nix> {
-    bootjdk = pkgs.callPackage <nixpkgs/pkgs/development/compilers/openjdk/bootstrap.nix> { version = "8"; };
-    inherit (pkgs.gnome2) GConf gnome_vfs;
-    minimal = true;
-  };
-in pkgs.buildFHSUserEnv {
+pkgs.buildFHSUserEnv {
   name = "nixdroid-build";
   targetPkgs = pkgs: with pkgs; [
       bc
@@ -21,7 +15,7 @@ in pkgs.buildFHSUserEnv {
       nettools
       androidenv.androidPkgs_9_0.platform-tools
       androidenv.androidPkgs_9_0.androidsdk
-      jdk
+      openjdk8
       schedtool
       utillinux
       m4
