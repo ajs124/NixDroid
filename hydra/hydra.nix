@@ -1,4 +1,4 @@
-{ isHydra }: with builtins;
+{ isHydra ? false }: with builtins;
 let
   defaultNixDroid = {
     nixexprpath = "default.nix";
@@ -90,12 +90,12 @@ in {
     };
     "los-17.0-oneplus3" = defaultNixDroid // {
       description = "LineageOS 17.0 for OnePlus 3";
-      inputs = defaultInputs {
+      inputs = builtins.removeAttrs (defaultInputs {
         device = "oneplus3";
         rom = "LineageOS";
         rev = "lineage-17.0";
         enableWireguard = "true";
-      };
+      }) [ "opengappsVariant" ];
     };
     prefetch = {
       description = "prefetch script for other jobsets hashes";
