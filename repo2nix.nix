@@ -61,6 +61,7 @@ in stdenvNoCC.mkDerivation {
 
     repo init ${concatStringsSep " " repoInitFlags}
     repo nix > "$out"
+    echo "# ${manifest}" >> "$out"
 
     rm -rf .repo*
   '';
