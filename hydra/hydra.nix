@@ -95,7 +95,6 @@ in {
         rom = "LineageOS";
         rev = "lineage-17.0";
         enableWireguard = "true";
-        opengappsVariant = "nano";
       };
     };
     prefetch = {
