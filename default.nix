@@ -50,6 +50,10 @@ in { ota = stdenv.mkDerivation rec {
     fi
 
     ${optionalString (opengappsVariant != null) ''
+      for dir in vendor/opengapps/sources/*; do
+        cd $dir
+        ${pkgs.git-lfs}/bin/git-lfs pull
+      done
       # Opengapps
       (
         echo 'GAPPS_VARIANT := ${opengappsVariant}'

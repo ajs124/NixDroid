@@ -4,13 +4,13 @@ pkgs.buildFHSUserEnv {
   targetPkgs = pkgs: with pkgs; [
       bc
       git
+      git-lfs
       gitRepo
       gnupg
       python2
       curl
       procps
       openssl_1_0_2.dev
-      # boringssl
       gnumake
       nettools
       androidenv.androidPkgs_9_0.platform-tools
